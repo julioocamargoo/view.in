@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+// TODO: Winston
 export default class Logger {
   static error(msg: string): void {
     this.printMessage(msg, 'red');

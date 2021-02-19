@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+
 import Link from '../entity/Link';
 
 export default class LinkRepository {
