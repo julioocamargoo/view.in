@@ -31,6 +31,6 @@ describe('generateShorterLinkUseCase', () => {
 
     expect(LinkRepository.prototype.save).toBeCalled();
     const protocol = process.env.IS_SECURE_HTTP === 'true' ? 'https' : 'http';
-    expect(result).toBe(`${protocol}://${process.env.EXTERNAL_API_DOMAIN}:${process.env.EXTERNAL_API_PORT}/${link.hash}`);
+    expect(result).toBe(`${protocol}://${process.env.DOMAIN}:${process.env.PORT}/${link.hash}`);
   });
 });

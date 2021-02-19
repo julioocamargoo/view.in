@@ -18,8 +18,8 @@ export default {
 
     Routes.setup(app);
 
-    app.listen(process.env.EXTERNAL_API_PORT, () => {
-      Logger.info(`Server listening on: ${process.env.EXTERNAL_API_DOMAIN}:${process.env.EXTERNAL_API_PORT}`);
+    app.listen(process.env.PORT || 8081, () => {
+      Logger.info(`Server listening on: ${process.env.DOMAIN}:${process.env.PORT}`);
     });
 
     return app;
