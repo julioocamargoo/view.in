@@ -7,21 +7,21 @@ export default class LinkRouter {
 
   addRoutes(): express.IRouter {
     this.createShorterUrl();
-    this.findLinkByAlias();
-    this.deleteLinkByAlias();
+    this.findLinkByHash();
+    this.deleteLinkByHash();
 
     return this.router;
   }
 
   private createShorterUrl() {
-    this.router.post('/', LinkController.createShorterUrl);
+    this.router.post('/encurtador', LinkController.createShorterUrl);
   }
 
-  private findLinkByAlias() {
-    this.router.get('/', LinkController.findLinkByAlias);
+  private findLinkByHash() {
+    this.router.get('/:hash', LinkController.findLinkByHash);
   }
 
-  private deleteLinkByAlias() {
-    this.router.delete('/', LinkController.deleteLinkByAlias);
+  private deleteLinkByHash() {
+    this.router.delete('/:hash', LinkController.deleteLinkByHash);
   }
 }

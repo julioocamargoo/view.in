@@ -1,6 +1,5 @@
 import express, { Express } from 'express';
 import * as bodyParser from 'body-parser';
-import { AddressInfo } from 'net';
 
 import Database from './Database';
 import Logger from './commons/Logger';
@@ -8,7 +7,7 @@ import Routes from './routes/Routes';
 
 export default {
   start: async (): Promise<Express> => {
-    await Database.connect();
+    await new Database().connect();
 
     const app = express();
 
@@ -18,9 +17,8 @@ export default {
 
     Routes.setup(app);
 
-    const server = app.listen(5000, () => {
-      const { port, address } = server.address() as AddressInfo;
-      Logger.info(`Server listening on: ${address}:${port}`);
+    const server = app.listen(process.env.EXTERNAL_API_PORT, () => {
+      Logger.info(`Server listening on: ${process.env.EXTERNAL_API_DOMAIN}:${process.env.EXTERNAL_API_PORT}`);
     });
 
     return app;

@@ -9,8 +9,11 @@ export default class Link {
 
   @Column()
   @Index()
-  alias!: string;
+  hash!: string;
 
   @Column()
   url!: string;
+
+  @Column()
+  expiresAt!: Date;
 }

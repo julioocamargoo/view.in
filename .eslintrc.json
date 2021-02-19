@@ -15,7 +15,7 @@
   "plugins": [
     "@typescript-eslint"
   ],
-  "rules": { "import/extensions": "off" },
+  "rules": { "import/extensions": "off", "class-methods-use-this": "off" },
   "settings": {
     "import/resolver": {
       "node": {
