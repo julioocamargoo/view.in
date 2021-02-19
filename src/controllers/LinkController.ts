@@ -20,7 +20,7 @@ export default class LinkController {
   static async discoverLinkByHash(req: Request, res: Response): Promise<void> {
     try {
       const discoverLinkByHashUseCase = new DiscoverLinkByHashUseCase();
-      const url = await discoverLinkByHashUseCase.execute(req.query.hash as string);
+      const url = await discoverLinkByHashUseCase.execute(req.params.hash as string);
 
       res.redirect(url);
     } catch (e) {
@@ -31,7 +31,7 @@ export default class LinkController {
   static async deleteLinkByHash(req: Request, res: Response): Promise<void> {
     try {
       const invalidateShortenedUrlUseCase = new InvalidateShortenedUrlUseCase();
-      await invalidateShortenedUrlUseCase.execute(req.query.hash as string);
+      await invalidateShortenedUrlUseCase.execute(req.params.hash as string);
 
       res.status(204).send();
     } catch (e) {

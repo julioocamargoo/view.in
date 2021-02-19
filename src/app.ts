@@ -13,11 +13,12 @@ export default {
 
     app.use(bodyParser.json());
 
+    // TODO: Add Swagger UI
     app.get('/', (req, res) => res.send('Healthy!'));
 
     Routes.setup(app);
 
-    const server = app.listen(process.env.EXTERNAL_API_PORT, () => {
+    app.listen(process.env.EXTERNAL_API_PORT, () => {
       Logger.info(`Server listening on: ${process.env.EXTERNAL_API_DOMAIN}:${process.env.EXTERNAL_API_PORT}`);
     });
 
