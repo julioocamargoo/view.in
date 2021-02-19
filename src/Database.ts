@@ -9,7 +9,6 @@ export default class Database {
   async connect(): Promise<Connection> {
     return createConnection({
       type: 'postgres',
-      ssl: process.env.NODE_ENV === 'production',
       url: process.env.DB_SRV,
       synchronize: true,
       logging: process.env.NODE_ENV !== 'production',
