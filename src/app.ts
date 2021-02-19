@@ -1,10 +1,24 @@
-import express from 'express';
+import express, { Express } from 'express';
 import * as bodyParser from 'body-parser';
+import { AddressInfo } from 'net';
+import Database from './database/Database';
+import Logger from './common/Logger';
 
-const app = express();
+export default {
+  start: async (): Promise<Express> => {
+    await Database.connect();
 
-app.use(bodyParser.json());
+    const app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'));
+    app.use(bodyParser.json());
 
-export default app;
+    app.get('/', (req, res) => res.send('Hello World!'));
+
+    const server = app.listen(5000, () => {
+      const { port, address } = server.address() as AddressInfo;
+      Logger.info(`Server listening on: ${address}:${port}`);
+    });
+
+    return app;
+  },
+};

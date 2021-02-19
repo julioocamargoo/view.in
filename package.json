@@ -6,15 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rm -rf dist/",
-     "build": "tsc",
-     "prestart": "npm run build",
-     "start": "ts-node ./"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "ts-node ./"
   },
   "author": "Julio Camargo",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "typeorm": "^0.2.31"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
