@@ -10,11 +10,7 @@ export default class Database {
     return createConnection({
       type: 'postgres',
       ssl: process.env.NODE_ENV === 'production',
-      host: process.env.DB_HOST,
-      port: Number(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
+      url: process.env.DB_SRV,
       synchronize: true,
       logging: process.env.NODE_ENV !== 'production',
       entities: [this.entitiesDir],
