@@ -18,7 +18,7 @@ export default class LinkRouter {
   }
 
   private findLinkByHash() {
-    this.router.get('/:hash', LinkController.findLinkByHash);
+    this.router.get('/:hash', LinkController.discoverLinkByHash);
   }
 
   private deleteLinkByHash() {

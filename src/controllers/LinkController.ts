@@ -17,7 +17,7 @@ export default class LinkController {
     }
   }
 
-  static async DiscoverLinkByHash(req: Request, res: Response): Promise<void> {
+  static async discoverLinkByHash(req: Request, res: Response): Promise<void> {
     try {
       const discoverLinkByHashUseCase = new DiscoverLinkByHashUseCase();
       const url = await discoverLinkByHashUseCase.execute(req.query.hash as string);
