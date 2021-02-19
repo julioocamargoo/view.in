@@ -1,7 +1,7 @@
 import express, { Express } from 'express';
 import * as bodyParser from 'body-parser';
 import { AddressInfo } from 'net';
-import Database from './database/Database';
+import Database from './Database';
 import Logger from './common/Logger';
 
 export default {

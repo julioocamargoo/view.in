@@ -13,7 +13,7 @@ export default class Database {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       synchronize: true,
-      logging: true,
+      logging: process.env.NODE_ENV !== 'production',
       entities: [Database.entitiesDir],
       migrations: [Database.migrationsDir],
       cli: {
