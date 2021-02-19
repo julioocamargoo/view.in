@@ -6,6 +6,9 @@ Mais simples que clicar em link encurtado. O view.in é um encurtador de links c
 ## How it works
 Sua URL original será armazenada no Postgres em conjunto com um hash indexado e criado utilizando o [nanoid](https://github.com/ai/nanoid), possibilitando o uso de hashes curtos, performáticos e com baixa chance de colisão, isso pode facilmente ser verificado [aqui](https://zelark.github.io/nano-id-cc/).
 
+## Live Demo
+https://viewin.herokuapp.com (endpoints na collection do postman)
+
 ## Prerequisites
 
  - NodeJS
