@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser';
 import { AddressInfo } from 'net';
 
 import Database from './Database';
-import Logger from './common/Logger';
+import Logger from './commons/Logger';
 import Routes from './routes/Routes';
 
 export default {

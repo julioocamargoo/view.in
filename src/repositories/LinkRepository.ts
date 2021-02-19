@@ -1,6 +1,6 @@
 import { getRepository } from 'typeorm';
 
-import Link from '../entity/Link';
+import Link from '../entities/Link';
 
 export default class LinkRepository {
   static async save(link: Link): Promise<void> {

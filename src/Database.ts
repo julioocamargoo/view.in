@@ -2,7 +2,7 @@ import { Connection, createConnection } from 'typeorm';
 import path from 'path';
 
 export default class Database {
-  static entitiesDir = path.join(__dirname, '/entity/*.js');
+  static entitiesDir = path.join(__dirname, '/entities/*.js');
 
   static migrationsDir = path.join(__dirname, '/migrations/*.js');
 
