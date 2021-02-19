@@ -58,7 +58,7 @@ export default class GenerateShorterLinkUseCase {
 
   private generateShorterUrl(hash: string): string {
     const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    let port;
+    let port = '';
     if (process.env.NODE_ENV !== 'production') {
       port = `:${process.env.PORT}`;
     }
