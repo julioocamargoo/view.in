@@ -18,7 +18,7 @@ export default {
 
     Routes.setup(app);
 
-    app.listen(process.env.PORT || 8081, () => {
+    app.listen(process.env.PORT, () => {
       Logger.info(`Server listening on: ${process.env.DOMAIN}:${process.env.PORT}`);
     });
 
