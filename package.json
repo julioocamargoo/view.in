@@ -4,11 +4,12 @@
   "description": "Simply Url Shortener",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest",
+    "postinstall": "npm run build",
     "prebuild": "rm -rf dist/",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "ts-node ./"
+    "start": "ts-node ./",
+    "test": "jest"
   },
   "author": "Julio Camargo",
   "license": "ISC",
