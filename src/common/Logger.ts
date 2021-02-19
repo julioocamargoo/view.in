@@ -4,11 +4,11 @@ export default class Logger {
     this.printMessage(msg, 'red');
   }
 
-  static info(msg: string): void {
+  static info(msg: unknown): void {
     this.printMessage(msg, 'blue');
   }
 
-  private static printMessage(msg: string, color: string) {
+  private static printMessage(msg: unknown, color: string) {
     console.log(`%c ${msg}`, `color: ${color}`);
   }
 }

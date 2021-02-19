@@ -2,7 +2,7 @@ import {
   Entity, PrimaryGeneratedColumn, Column, Index,
 } from 'typeorm';
 
-@Entity()
+@Entity('links')
 export default class Link {
   @PrimaryGeneratedColumn()
   id!: number;
