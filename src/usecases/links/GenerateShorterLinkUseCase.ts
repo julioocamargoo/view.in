@@ -10,6 +10,12 @@ export default class GenerateShorterLinkUseCase {
 
   readonly DEFAULT_EXPIRATION_TIME_IN_MINUTES = 525600;
 
+  linkRepository: LinkRepository;
+
+  constructor() {
+    this.linkRepository = new LinkRepository();
+  }
+
   async execute(url: string): Promise<string | undefined> {
     if (!url) {
       throw new HttpError('Url não informada', 400);
@@ -19,9 +25,13 @@ export default class GenerateShorterLinkUseCase {
       link.hash = this.generateHash();
       link.url = url;
       link.expiresAt = this.generateExpirationDate();
-      const savedLink = await LinkRepository.save(link);
-      return GenerateShorterLinkUseCase.generateShorterUrl(savedLink.hash);
+      const savedLink = await this.linkRepository.save(link);
+      return this.generateShorterUrl(savedLink.hash);
     } catch (e) {
+      if (e instanceof HttpError) {
+        throw e;
+      }
+
       Logger.error(e);
       throw new HttpError('Falha ao gerar url minificada', 500);
     }
@@ -46,8 +56,8 @@ export default class GenerateShorterLinkUseCase {
     return date;
   }
 
-  private static generateShorterUrl(hash: string): string {
-    const protocol = process.env.IS_SECURE_HTTP ? 'https' : 'http';
+  private generateShorterUrl(hash: string): string {
+    const protocol = process.env.IS_SECURE_HTTP === 'true' ? 'https' : 'http';
     return `${protocol}://${process.env.EXTERNAL_API_DOMAIN}:${process.env.EXTERNAL_API_PORT}/${hash}`;
   }
 }
