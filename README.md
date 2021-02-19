@@ -26,6 +26,10 @@ Edição do arquivo de variáveis de ambiente
 Execução da aplicação
 
     npm start
+
+Execução dos testes
+
+    npm test
 ## TODOS
 
  - Documentar a API utilizando Swagger UI e [tsoa](https://github.com/lukeautry/tsoa)
